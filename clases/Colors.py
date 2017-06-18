@@ -23,3 +23,6 @@ class Colors:
 
     def get_dark_blue(self):
         return (0, 0, 200)
+
+    def get_gold(self):
+        return (255, 215, 0)
