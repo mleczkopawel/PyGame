@@ -9,6 +9,7 @@ from clases.BadThing import BadThing
 from clases.GoodThing import GoodThing
 
 pygame.init()
+
 colors = Colors()
 positions = Positions(800, 1000)
 positions.set_car_width(73)
@@ -116,7 +117,7 @@ def game_loop():
 
 
         if (positions.get_car_position_x() > positions.get_game_width() - positions.get_car_width()) or positions.get_car_position_x() < 0:
-            crash()
+            crash(bad_thing, bonus_slower_car, bonus_less_width, bonus_slower_bad_thing)
 
         if bad_thing.get_position_y() > positions.get_game_height():
             bad_thing.increase_speed(0.5)
