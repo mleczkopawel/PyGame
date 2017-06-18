@@ -93,20 +93,20 @@ def game_loop():
 
         gameDisplay.fill(colors.get_white())
 
-        bonus_slower_car.make_text('Slower car bonus: ', gameDisplay, (positions.get_game_width() - 200, 5))
+        bonus_slower_bad_thing.make_text('Slower bad black box: ', gameDisplay, (positions.get_game_width() - 250, 45))
+        if bad_thing.get_dodged() % 11 == 0 and bad_thing.get_dodged() != 0:
+            bonus_slower_bad_thing.make_thing(gameDisplay, colors.get_gold())
+            bonus_slower_bad_thing.increase_y()
+
+        bonus_slower_car.make_text('Slower car bonus: ', gameDisplay, (positions.get_game_width() - 250, 5))
         if bad_thing.get_dodged() % 5 == 0 and bad_thing.get_dodged() != 0:
             bonus_slower_car.make_thing(gameDisplay, colors.get_green())
             bonus_slower_car.increase_y()
 
-        bonus_less_width.make_text('Less width: ', gameDisplay, (positions.get_game_width() - 200, 25))
+        bonus_less_width.make_text('Less width: ', gameDisplay, (positions.get_game_width() - 250, 25))
         if bad_thing.get_dodged() % 7 == 0 and bad_thing.get_dodged() != 0:
             bonus_less_width.make_thing(gameDisplay, colors.get_blue())
             bonus_less_width.increase_y()
-
-        bonus_slower_bad_thing.make_text('Slower bad black box: ', gameDisplay, (positions.get_game_width() - 200, 50))
-        if bad_thing.get_dodged() % 11 == 0 and bad_thing.get_dodged() != 0:
-            bonus_slower_bad_thing.make_thing(gameDisplay, colors.get_gold())
-            bonus_slower_bad_thing.increase_y()
 
         car.show_car(gameDisplay, positions.get_car_position())
         bad_thing.things_dodged(colors, gameDisplay)
@@ -125,15 +125,12 @@ def game_loop():
             bad_thing.set_position_x(random.randrange(0, positions.get_game_width()))
             bad_thing.increase_dodged()
 
-            # bonus_slower_car.increase_speed(0.5)
             bonus_slower_car.set_position_y(0 - bonus_slower_car.get_height())
             bonus_slower_car.set_position_x(random.randrange(0, positions.get_game_width()))
 
-            # bonus_less_width.increase_speed(0.5)
             bonus_less_width.set_position_y(0 - bonus_less_width.get_height())
             bonus_less_width.set_position_x(random.randrange(0, positions.get_game_width()))
 
-            # bonus_slower_bad_thing.increase_speed(0.5)
             bonus_slower_bad_thing.set_position_y(0 - bonus_slower_bad_thing.get_height())
             bonus_slower_bad_thing.set_position_x(random.randrange(0, positions.get_game_width()))
 
