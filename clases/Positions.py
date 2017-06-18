@@ -1,5 +1,4 @@
 class Positions:
-
     def __init__(self, game_width, game_height):
         self.game_width = game_width
         self.game_height = game_height
@@ -15,7 +14,7 @@ class Positions:
         self.car_position_y = y
 
     def get_car_position(self):
-        return (self.car_position_x, self.car_position_y)
+        return self.car_position_x, self.car_position_y
 
     def get_car_position_x(self):
         return self.car_position_x

@@ -1,7 +1,7 @@
 import pygame
 
-class Things:
 
+class Things:
     def __init__(self, x, y, w, h, c, s):
         self.x = x
         self.y = y
@@ -52,9 +52,8 @@ class Things:
     def increase_speed(self, increase):
         self.s += increase
 
-    def make_thing(self, gameDisplay, c = None):
-        if c != None:
-            pygame.draw.rect(gameDisplay, c, [self.x, self.y - self.s, self.w, self.h])
+    def make_thing(self, game_display, c=None):
+        if c is not None:
+            pygame.draw.rect(game_display, c, [self.x, self.y - self.s, self.w, self.h])
         else:
-            pygame.draw.rect(gameDisplay, self.c, [self.x, self.y, self.w, self.h])
-
+            pygame.draw.rect(game_display, self.c, [self.x, self.y, self.w, self.h])
