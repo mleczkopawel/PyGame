@@ -2,6 +2,9 @@ class Positions:
     def __init__(self, game_width, game_height):
         self.game_width = game_width
         self.game_height = game_height
+        self.car_position_x = None
+        self.car_position_y = None
+        self.car_width = None
 
     def get_game_width(self):
         return self.game_width
