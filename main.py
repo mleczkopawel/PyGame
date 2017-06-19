@@ -12,6 +12,9 @@ from clases.Positions import Positions
 
 pygame.init()
 
+crash_sound = pygame.mixer.Sound('sounds/Crash2.wav')
+loop_sound = pygame.mixer.Sound('sounds/play2.wav')
+
 colors = Colors()
 positions = Positions(800, 1000)
 positions.set_car_width(73)
@@ -21,6 +24,7 @@ action = Action(0)
 gameDisplay = pygame.display.set_mode((positions.get_game_width(), positions.get_game_height()))
 pygame.display.set_caption('A bit Racey')
 clock = pygame.time.Clock()
+pygame.mixer.Sound.play(loop_sound)
 
 
 def button(text, start_x, start_y, width, height, color, color_dark, actionn=None):
@@ -52,7 +56,7 @@ def game_intro():
                 pygame.quit()
                 quit()
 
-        gameDisplay.fill(colors.get_white())
+        gameDisplay.fill(colors.get_gray())
         largeText = pygame.font.Font('fonts/arial.ttf', 115)
         TextSurf, TextRect = others.text_objects('A bit Racey', largeText, colors.get_black())
         TextRect.center = (positions.get_game_width() / 2, positions.get_game_height() / 2)
@@ -67,6 +71,8 @@ def game_intro():
 
 
 def crash(bt, bsc, blw, bsbt):
+    pygame.mixer.music.stop()
+    pygame.mixer.Sound.play(crash_sound)
     action.crash(gameDisplay, positions, others, colors, bt, bsc, blw, bsbt)
     game_intro()
 
@@ -102,7 +108,7 @@ def game_loop():
                 if event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT:
                     positions.set_car_position_x(positions.get_car_position_x())
 
-        gameDisplay.fill(colors.get_white())
+        gameDisplay.fill(colors.get_gray())
 
         bonus_slower_bad_thing.make_text('Slower bad black box: ', gameDisplay, (positions.get_game_width() - 250, 5))
         if bad_thing.get_dodged() % 11 == 0 and bad_thing.get_dodged() != 0:

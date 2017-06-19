@@ -35,3 +35,7 @@ class Colors:
     @staticmethod
     def get_gold():
         return 255, 215, 0
+
+    @staticmethod
+    def get_gray():
+        return 192, 192, 192
