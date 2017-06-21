@@ -1,5 +1,6 @@
 import random
 
+# import pygame_textinput
 import pygame
 
 from clases.Action import Action
@@ -79,7 +80,7 @@ def crash(bt, bsc, blw, bsbt):
 
 def game_loop():
     car = Car('images/SimpleDarkBlueCarTopView.png', 50)
-    positions.set_car_position(positions.get_game_width() * 0.45, positions.get_game_height() * 0.88)
+    positions.set_car_position(positions.get_game_width() * 0.45, positions.get_game_height() - 110)
     bad_thing = BadThing(random.randrange(0, positions.get_game_width()), -600, 100, 100, colors.get_black(), 7)
     bonus_slower_car = GoodThing(random.randrange(0, positions.get_game_width()), -600, 100, 100, colors.get_green(),
                                  15, 0)
