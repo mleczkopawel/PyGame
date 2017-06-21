@@ -17,7 +17,7 @@ class GoodThing(Things):
             car.set_speed(50)
             self._count_b0 += 1
         elif self._bonus_type == 1:
-            bad_thing.set_width(100)
+            bad_thing.set_width(50)
             self._count_b1 += 2
         elif self._bonus_type == 2:
             bad_thing.set_speed(7)

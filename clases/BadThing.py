@@ -11,7 +11,7 @@ class BadThing(Things):
     def things_dodged(self, colors, game_display):
         font = pygame.font.SysFont(None, 25)
         text = font.render("Dodged: " + str(self._dodged), True, colors.get_black())
-        game_display.blit(text, (0, 0))
+        game_display.blit(text, (65, 5))
 
     def increase_width(self, increase):
         self.w += self._dodged * increase

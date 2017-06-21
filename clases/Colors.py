@@ -29,6 +29,10 @@ class Colors:
         return 0, 200, 0
 
     @staticmethod
+    def get_darker_green():
+        return 0, 150, 0
+
+    @staticmethod
     def get_dark_blue():
         return 0, 0, 200
 

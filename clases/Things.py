@@ -52,8 +52,14 @@ class Things:
     def increase_speed(self, increase):
         self.s += increase
 
-    def make_thing(self, game_display, c=None):
-        if c is not None:
-            pygame.draw.rect(game_display, c, [self.x, self.y - self.s, self.w, self.h])
+    def make_thing(self, game_display, c=None, rect=None):
+        if rect is not None:
+            if c is not None:
+                pygame.draw.circle(game_display, c, (self.x, self.y), int(self.w / 4), 0)
+            else:
+                pygame.draw.circle(game_display, self.c, (self.x, self.y - self.s), int(self.w / 4), 0)
         else:
-            pygame.draw.rect(game_display, self.c, [self.x, self.y, self.w, self.h])
+            if c is not None:
+                pygame.draw.rect(game_display, c, [self.x, self.y - self.s, self.w, self.h])
+            else:
+                pygame.draw.rect(game_display, self.c, [self.x, self.y, self.w, self.h])
